@@ -5,6 +5,7 @@
 работу
 F0 = 0, F1 = 1, Fi = F(i-1) + F(i-2), pentru i>=2
  */
+error_reporting(E_ALL);
 function fibonacci($x)
 {
 	if($x===0){
@@ -46,20 +47,21 @@ function dohodComplex($suma, $termen, $procentAnual)
 Возвращает правильно сформированную дату на
 русском языке. Например: «1 января» или «9 мая»
  */
-$months[] = array('1' => 'января',
-                  '1' =>'февраля',
-                  'марта',
-                  'апреля',
-                  'мая',
-                  'июня',
-                  'июля',
-                  'августа',
-                  'сентября',
-                  'октября',
-                  'ноября',
-                  'декабря');
-function dateInRu($day, $month){
 
+function dateInRu($day, $month){
+	$months = array(1 => 'января',
+	                'февраля',
+	                'марта',
+	                'апреля',
+	                'мая',
+	                'июня',
+	                'июля',
+	                'августа',
+	                'сентября',
+	                'октября',
+	                'ноября',
+	                'декабря');
+	return $day ." " . $months[$month];
 }
 ?>
 
@@ -71,6 +73,6 @@ function dateInRu($day, $month){
 </head>
 <body>
 <h1>Hello world!</h1>
-<h2><?php echo var_dump($months);?></h2>
+<h2><?php echo dateInRu(1, 9);?></h2>
 </body>
 </html>
